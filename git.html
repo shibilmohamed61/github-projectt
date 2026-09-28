@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Nights Concert</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080812;
+      color: white;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 8, 18, 0.9);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #ff2bd6;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff2bd6;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 50px;
+      background:
+        radial-gradient(circle at 20% 30%, #4b0082 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, #ff0080 0%, transparent 30%),
+        #080812;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 10vw, 110px);
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ff2bd6, #6c5ce7, #00eaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin: 20px 0;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      margin-top: 20px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ff2bd6, #6c5ce7);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 25px #ff2bd6;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 8%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 42px;
+      margin-bottom: 40px;
+      color: #ff2bd6;
+    }
+
+    /* Artists */
+    .artists {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .artist {
+      padding: 35px 20px;
+      border: 1px solid #292945;
+      border-radius: 20px;
+      background: #111122;
+      transition: 0.3s;
+    }
+
+    .artist:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px rgba(255, 43, 214, 0.4);
+    }
+
+    .artist .icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .artist h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .artist p {
+      color: #aaa;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      width: 120px;
+      padding: 25px 10px;
+      background: #111122;
+      border-radius: 15px;
+      border: 1px solid #292945;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 38px;
+      font-weight: bold;
+      color: #00eaff;
+    }
+
+    .time-box small {
+      color: #aaa;
+    }
+
+    /* Tickets */
+    .tickets {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .ticket {
+      width: 280px;
+      padding: 35px;
+      background: #111122;
+      border-radius: 20px;
+      border: 1px solid #292945;
+    }
+
+    .ticket h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 40px;
+      color: #ff2bd6;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .ticket ul {
+      list-style: none;
+      line-height: 2;
+      color: #bbb;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: #050509;
+      color: #888;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav div:last-child {
+        display: none;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">NEON NIGHTS</div>
+
+    <div>
+      <a href="#home">Home</a>
+      <a href="#artists">Artists</a>
+      <a href="#tickets">Tickets</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <p>THE BIGGEST MUSIC EXPERIENCE</p>
+      <h1>NEON<br>NIGHTS</h1>
+      <p>🎵 Live Music • 🔥 Energy • ✨ Unforgettable Night</p>
+      <p>December 20, 2026 • 6:00 PM • City Arena</p>
+
+      <a href="#tickets" class="btn">GET TICKETS</a>
+    </div>
+  </section>
+
+  <!-- Artists -->
+  <section id="artists">
+    <h2>LIVE ARTISTS</h2>
+
+    <div class="artists">
+
+      <div class="artist">
+        <div class="icon">🎤</div>
+        <h3>DJ Nova</h3>
+        <p>Electronic / EDM</p>
+      </div>
+
+      <div class="artist">
+        <div class="icon">🎸</div>
+        <h3>The Waves</h3>
+        <p>Rock / Alternative</p>
+      </div>
+
+      <div class="artist">
+        <div class="icon">🎧</div>
+        <h3>Alex Ray</h3>
+        <p>Pop / Dance</p>
+      </div>
+
+      <div class="artist">
+        <div class="icon">🎹</div>
+        <h3>Midnight Band</h3>
+        <p>Indie / Live Music</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section>
+    <h2>COUNTDOWN</h2>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>DAYS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>HOURS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tickets -->
+  <section id="tickets">
+    <h2>GET YOUR TICKETS</h2>
+
+    <div class="tickets">
+
+      <div class="ticket">
+        <h3>GENERAL</h3>
+        <div class="price">₹999</div>
+
+        <ul>
+          <li>✓ Concert Entry</li>
+          <li>✓ General Area</li>
+          <li>✓ Free Wristband</li>
+        </ul>
+
+        <a href="#" class="btn">BUY NOW</a>
+      </div>
+
+      <div class="ticket">
+        <h3>VIP</h3>
+        <div class="price">₹2,499</div>
+
+        <ul>
+          <li>✓ VIP Entry</li>
+          <li>✓ Front Stage Area</li>
+          <li>✓ VIP Lounge</li>
+          <li>✓ Free Merchandise</li>
+        </ul>
+
+        <a href="#" class="btn">BUY NOW</a>
+      </div>
+
+      <div class="ticket">
+        <h3>VVIP</h3>
+        <div class="price">₹4,999</div>
+
+        <ul>
+          <li>✓ VVIP Entry</li>
+          <li>✓ Best View</li>
+          <li>✓ Backstage Access</li>
+          <li>✓ Meet & Greet</li>
+        </ul>
+
+        <a href="#" class="btn">BUY NOW</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Neon Nights Concert. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Countdown JavaScript -->
+  <script>
+    const concertDate = new Date("December 20, 2026 18:00:00").getTime();
+
+    const countdown = setInterval(function () {
+
+      const now = new Date().getTime();
+      const distance = concertDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) / 1000
+      );
+
+      document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown").innerHTML =
+          "<h3>The concert has started! 🎉</h3>";
+      }
+
+    }, 1000);
+  </script>
+
+</body>
+</html>
+
